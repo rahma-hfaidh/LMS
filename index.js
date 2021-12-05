@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 // define a root route
 
 app.use(express.json())
-app.use(cors({origin:"http://localhost:3000"}));
+app.use(cors({origin:"http://localhost:4200"}));
 
 
 app.use("/Classes/api",classeRoute);

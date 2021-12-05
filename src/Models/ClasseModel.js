@@ -2,7 +2,7 @@ var dbConn=require('../../Config/db');
 
 //create classe object
  var Classe=function(classe){
-     this.désignation=classe.désignation;
+     this.designation=classe.designation;
  };
 
 
@@ -19,11 +19,38 @@ Classe.findAll=function(result){
     })
 
 };
+//add class
+Classe.create= function(newClasse, result){
+    dbConn.query("INSERT INTO classe set ?", newClasse, function(err,res){
+        if(err){
+            console.log("error at inserting :",err)
+            result(err,null);
+        }else{
+            console.log(res.insertId);
+            result(null, res);
+           
+           
+        }
+    });
+}
+
+//delete class 
+Classe.delete = function(id, result){
+    dbConn.query("DELETE FROM classe WHERE id_classe = ?", [id], function (err, res) {
+    if(err) {
+      console.log("error: ", err);
+      result(null, err);
+    }
+    else{
+      result(null, res);
+        }
+    });
+};
 
 
 //update class
 Classe.update = function(id, classe, result){
-    dbConn.query("UPDATE classe SET désignation=? WHERE id_classe = ?", [classe.désignation, id], 
+    dbConn.query("UPDATE classe SET designation=? WHERE id_classe = ?", [classe.designation, id], 
         function (err, res) {
             if(err) {
                 console.log("error: ", err);

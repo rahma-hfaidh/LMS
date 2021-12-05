@@ -31,3 +31,28 @@ exports.update = function(req, res) {
 
 };
 
+exports.create = function(req, res) {
+  const new_classe = new Classe(req.body);
+  Classe.create(new_classe, function(err, classe) {
+    if (err){
+      res.send(err);
+    }else{
+      res.json({
+        succes:true,
+        message: 'Added successfully',
+    })
+    } 
+  });
+
+
+};
+
+exports.delete = function(req, res) {
+  Classe.delete( req.params.id_classe, function(err, classe) {
+  if (err){
+    res.send(err);
+  }else{
+    res.json({ error:false, message: 'class successfully deleted' });
+  }    
+});
+};
