@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const classeRoute = require("./src/Routes/ClasseRoute");
+const matiereRoute = require("./src/Routes/MatiereRoute");
 const etudiantRoute = require("./src//Routes/EtudiantRoute");
 
 var dbConn= require('./Config/db')
@@ -21,6 +22,7 @@ app.use(cors({origin:"http://localhost:4200"}));
 
 
 app.use("/Classes/api",classeRoute);
+app.use("/Matieres/api",matiereRoute);
 app.use("/Etudiants/api",etudiantRoute);
 
 // listen for requests
