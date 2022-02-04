@@ -2,10 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const classeRoute = require("./src/Routes/ClasseRoute");
 const matiereRoute = require("./src/Routes/MatiereRoute");
-const etudiantRoute = require("./src//Routes/EtudiantRoute");
-const questionRoute = require("./src//Routes/questionRoute");
-const testRoute = require("./src//Routes/testRoute");
-const reponseRoute = require("./src//Routes/reponseRoute");
+const etudiantRoute = require("./src/Routes/EtudiantRoute");
+const questionRoute = require("./src/Routes/questionRoute");
+const typeRoute = require("./src/Routes/TypeRoute");
+const testRoute = require("./src/Routes/testRoute");
+const reponseRoute = require("./src/Routes/reponseRoute");
 var dbConn= require('./Config/db')
 // create express app
 const app = express();
@@ -27,6 +28,7 @@ app.use("/Classes/api",classeRoute);
 app.use("/Matieres/api",matiereRoute);
 app.use("/Etudiants/api",etudiantRoute);
 app.use("/Questions/api",questionRoute);
+app.use("/Types/api",typeRoute)
 app.use("/Tests/api",testRoute);
 app.use("/Reponse/api",reponseRoute);
 

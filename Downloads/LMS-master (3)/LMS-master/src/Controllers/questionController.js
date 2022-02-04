@@ -109,9 +109,9 @@ exports.delete = async (req,res,next)=>{
 
 
 // Delete an question by id test
-exports.deleteByIdDomaine = async (req,res,next)=>{
+exports.deleteByIdTest = async (req,res,next)=>{
 
-    const deletequestion = await question.deleteByIdDomaine(req.params.idTest);
+    const deletequestion = await question.deleteByIdTest(req.params.idTest);
    
     if(deletequestion[0]. affectedRows >= 1)
     {
