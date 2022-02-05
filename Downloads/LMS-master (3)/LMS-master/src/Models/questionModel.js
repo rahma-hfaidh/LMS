@@ -35,7 +35,7 @@ module.exports = class Question{
 
  static getid(){
         return db.execute (
-            'SELECT max(id_question)+1 as id_question FROM question');
+            'SELECT max(idQuestion)+1 as idQuestion FROM question');
      
     }
  
@@ -47,7 +47,7 @@ module.exports = class Question{
       }
     
       static delete(id_question) {
-        return db.execute('DELETE FROM question WHERE id_question = ?',[id_question]);
+        return db.execute('DELETE FROM question WHERE idQuestion = ?',[id_question]);
       }
   
        

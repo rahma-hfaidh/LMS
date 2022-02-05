@@ -48,7 +48,7 @@ exports.getTestByChapitre= async (req,res,next)=>{
 // get an test
 exports.getTest= async (req,res,next)=>{
     const idTest = req.params.idTest;
-    const data = await domaine.findTestById(idTest);
+    const data = await test.findTestById(idTest);
     const results = data[0][0];
       if (data[0].length !== 0){
             res.json({
