@@ -1,13 +1,15 @@
 const express= require('express');
-const question = require('../models/questionModel')
-const test= require('../models/testModel');
+const question = require('../Models/questionModel');
+const test= require('../Models/testModel');
 
 
 
 //get all question
 exports.getAllquestion= async (req,res,next)=>{
+    try {
+    const [ress]= await question.fetchAll();
     
-    const ress= await question.fetchAll();
+    console.log(ress)
     rows = ress[0];
     if(rows.length !== 0)
     {
@@ -23,6 +25,11 @@ exports.getAllquestion= async (req,res,next)=>{
             message: 'aucun question',
         });
      }
+    }catch(err) {
+        if(!err.statuscode){
+            err.statuscode = 500
+        }
+    }
     }
 
     exports.getIdQuestion= async (req,res,next)=>{

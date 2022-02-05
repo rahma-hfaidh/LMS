@@ -11,8 +11,7 @@ module.exports = class Question{
       
     }
     static fetchAll(){
-        return db.execute (
-            'SELECT * FROM question');
+                 return db.execute ('SELECT * FROM question');
      
     }
     static findQuesById(id_question){

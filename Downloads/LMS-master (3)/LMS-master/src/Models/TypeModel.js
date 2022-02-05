@@ -1,4 +1,4 @@
-const db = require('../../Config/db');
+const db = require('../../Config/dbQuest');
 
 module.exports = class Type{
     constructor(id_type,type){
@@ -6,7 +6,7 @@ module.exports = class Type{
         this.type = this.type;   
     }
     static fetchAll(){
-        return db.execute (
+        return db.execute(
             'SELECT * FROM type');
      
     }

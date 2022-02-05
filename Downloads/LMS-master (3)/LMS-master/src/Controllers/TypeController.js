@@ -1,5 +1,5 @@
 const express= require('express');
-const type = require('../models/TypeModel')
+const type = require('../Models/TypeModel')
 
 
 
