@@ -16,7 +16,7 @@ static deleteChapitre(id_chapitre) {
     return dbConn.promise().execute('DELETE FROM chapitre WHERE id_chapitre = ?', [id_chapitre]);
   }
   //ajouter chapitre
-
+//
 
  //modifier chapitre
 }
