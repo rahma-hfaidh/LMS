@@ -1,5 +1,5 @@
 const express= require('express');
-const test = require('../models/testModel');
+const test = require('../Models/testModel');
 
 
 
@@ -29,10 +29,9 @@ exports.getAlltest= async (req,res,next)=>{
 exports.getTestByChapitre= async (req,res,next)=>{
     const idChapitre = req.params.idChapitre;
     
-    const data = await test.findTestByIdChapitre(idChapitre);
+    const data = await test.findTestByChapitre(idChapitre);
     const results = data[0];
-    console.log(results)
-      if (data[0].length !== 0){
+        if (data[0].length !== 0){
             res.json({
                 succes: true,
                 test: results
@@ -110,44 +109,46 @@ exports.deleteByIdChapitre = async (req,res,next)=>{
 // insert an test***********************************************************************************************
 //******************************************************************************
 exports.post = async (req,res,next)=>{
-    let datePassage= req.body.datePassage;
+    let designation=req.body.designation;
+      let datePassage= req.body.datePassage;
     let dureeMax= req.body.dureeMax;
-    //let idChapitre=req.body.idChapitre;
+    let idChapitre=req.body.idChapitre;
  
-
+    
          
    // const results= await chapitre.findBattById(idChapitre);
+ //results[0];
+//results[0][0];
+    const storedTest = 1;
+    const sortedTest2 =1;
  
-
-    const storedTest =results[0];
-    const sortedTest2 =results[0][0];
-    console.log("test",storedTest);
-    console.log("test",storedTest.length);
-
+   // console.log("test",storedTest.length);
+/*
             if(storedTest.length >0)
-            {   
-                const rest= await test.save(datePassage,dureeMax);
+            {  
+                */ 
+                const rest= await test.save(designation,datePassage,dureeMax,idChapitre);
                 res.json({
                     succes:true,
                     message: 'ajouter avec succès',
                 })
-            }
-            else if(sortedTest2 == null)
-            {
+           // }
+           /*
+            else if(sortedTest2 == null) {
                 res.json({succes: false,
                     message: 'chapitre introuvable',})
                 
             
         
             }
-      
+      */
     
     }
 
   //  *********************************************************
 // update an test
 exports.put= async (req,res,next)=>{
-
+    let designation= req.body.designation;
     let datePassage= req.body.datePassage;
     let dureeMax= req.body.dureeMax;
     //let idChapitre=req.body.idChapitre;
@@ -160,7 +161,7 @@ exports.put= async (req,res,next)=>{
 
             if(storedTest.length >0)
             {
-                const rest= await test.update(datePassage,dureeMax,req.params.idTest);
+                const rest= await test.update(designation,datePassage,dureeMax,req.params.idTest);
                 res.json({update:true}); 
             }
             else if(sortedTest2 == null)

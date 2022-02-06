@@ -1,8 +1,9 @@
-const db = require('../../Config/db');
+const db = require('../../Config/dbQuest');
 
 module.exports = class Test{
-    constructor(idTest,dureeMax,datePassage,idChapitre){
+    constructor(idTest,designation,dureeMax,datePassage,idChapitre){
         this.idTest = idTest ;
+        this.designation=designation;
         this.dureeMax = dureeMax;   
         this.datePassage=datePassage
         this.idChapitre=idChapitre;
@@ -12,31 +13,31 @@ module.exports = class Test{
             'SELECT * FROM test');
      
     }
-    static findDomById(idTest){
+    static findTestById(idTest){
         return db.execute(
             'SELECT * FROM test WHERE idTest = ?',[idTest]);
         
     }
-    /*
-    static findDomByIdChapitre(id_chapitre){
+    
+    static findTestByChapitre(id_chapitre){
         
         return db.execute(
             'SELECT * FROM test WHERE idChapitre = ?',[id_chapitre]);
         
     }
-    */
+    
  
-   static save (dureeMax,datePassage,idChapitre){
+   static save (designation,dureeMax,datePassage,idChapitre){
   
 
-       return db.execute('INSERT  INTO test SET dureeMax = ?, datePassage = ?, idChapitre= ?',
-       [dureeMax,datePassage,idChapitre]);
+       return db.execute('INSERT  INTO test SET designation = ?,dureeMax = ?, datePassage = ?, idChapitre= ?',
+       [designation,dureeMax,datePassage,idChapitre]);
    }
  
     
-    static update(dureeMax,idChapitre,idTest) {
-        return db.execute('UPDATE test SET dureeMax  = ?, datePassage = ?, idChapitre =? WHERE idTest = ?', 
-        [dureeMax,dureeMax,idChapitre,idTest]);
+    static update(designation,dureeMax,idChapitre,idTest) {
+        return db.execute('UPDATE test SET designation = ?,dureeMax  = ?, datePassage = ?, idChapitre =? WHERE idTest = ?', 
+        [designation,dureeMax,dureeMax,idChapitre,idTest]);
       }
       
     

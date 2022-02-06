@@ -7,7 +7,7 @@ const test= require('../Models/testModel');
 //get all question
 exports.getAllquestion= async (req,res,next)=>{
     try {
-    const [ress]= await question.fetchAll();
+    const ress= await question.fetchAll();
     
     console.log(ress)
     rows = ress[0];

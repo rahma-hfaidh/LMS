@@ -1,4 +1,4 @@
-const db = require('../../Config/db');
+const db = require('../../Config/dbQuest');
 
 module.exports = class reponse{
     constructor(id_reponse,contenu,correct,id_question){
