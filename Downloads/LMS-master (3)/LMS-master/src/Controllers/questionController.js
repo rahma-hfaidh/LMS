@@ -54,12 +54,11 @@ exports.getAllquestion= async (req,res,next)=>{
 
 
 
-// get an question by domaine
+// get an question by test
 exports.getQuestionByTest= async (req,res,next)=>{
     const idTest = req.params.idTest;
     const data = await question.findQuesByTestId(idTest);
     const results = data[0];
-    console.log(results)
       if (data[0].length !== 0){
             res.json({
                 succes: true,
@@ -95,17 +94,19 @@ exports.getQuestion= async (req,res,next)=>{
 
 
 // Delete an question
-exports.delete = async (req,res,next)=>{
-
-    const deletequestion = await question.delete(req.params.idQuestion);
-   
-    if(deletequestion[0]. affectedRows == 1)
+exports.deleteQ = async (req,res,next)=>{
+    console.log("gffff")
+console.log(req.params.idQuestion)
+console.log("gffff")
+    const deletequestion = await question.deleteQ(req.params.idQuestion);
+    console.log("gffff")
+    if(deletequestion[0].affectedRows == 1)
     {
         res.json({succes: true,
             message: 'delete successfully',
                });
     }
-    else if(deletequestion[0]. affectedRows ==0)
+    else if(deletequestion[0].affectedRows ==0)
     {
         res.json({succes: false,
             message: 'error in delete',

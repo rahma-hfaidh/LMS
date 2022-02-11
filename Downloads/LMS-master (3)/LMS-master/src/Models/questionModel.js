@@ -45,7 +45,7 @@ module.exports = class Question{
         [duree,question,ponderation,id_type,idTest,id_question]);
       }
     
-      static delete(id_question) {
+      static deleteQ(id_question) {
         return db.execute('DELETE FROM question WHERE idQuestion = ?',[id_question]);
       }
   
