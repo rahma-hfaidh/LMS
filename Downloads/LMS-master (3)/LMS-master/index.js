@@ -7,6 +7,8 @@ const questionRoute = require("./src/Routes/questionRoute");
 const typeRoute = require("./src/Routes/TypeRoute");
 const testRoute = require("./src/Routes/testRoute");
 const reponseRoute = require("./src/Routes/reponseRoute");
+const chapitreRoute = require("./src/Routes/ChapitreRoute");
+
 var dbConn= require('./Config/db')
 // create express app
 const app = express();
@@ -23,7 +25,7 @@ app.use(bodyParser.json())
 app.use(express.json())
 app.use(cors({origin:"http://localhost:4200"}));
 
-
+app.use("/Chapitres/api",chapitreRoute);
 app.use("/Classes/api",classeRoute);
 app.use("/Matieres/api",matiereRoute);
 app.use("/Etudiants/api",etudiantRoute);
