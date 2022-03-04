@@ -26,7 +26,7 @@ module.exports = class Question{
  
    static save(duree,quest,ponderation,id_type,idTest){
  
-       return db.execute('INSERT  INTO question SET   duree = ?,question = ?,ponderation = ?,idTest = ?,id_type= ?',
+       return db.execute('INSERT  INTO question SET   duree = ?,question = ?,ponderation = ?,id_type= ?,idTest = ?',
        [duree,quest,ponderation,id_type,idTest] );
       
       

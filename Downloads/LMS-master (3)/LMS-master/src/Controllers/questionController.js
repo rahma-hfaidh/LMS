@@ -144,31 +144,17 @@ exports.post = async (req,res,next)=>{
     let quest= req.body.question;
     let ponderation= req.body.ponderation;
     let idTest= req.body.idTest;
+    let id_type=req.body.id_type;
 
-  
-    const results= await domaine.findTestById(idTest);
-  
-    const storedQues =results[0];
-    const sortedQues2 =results[0][0];
-  
-            if(storedQues.length >0)
-            {
+    
              
-                const rest=await question.save(duree,quest,ponderation,idTest);
+                const rest=await question.save(duree,quest,ponderation,id_type,idTest);
                 console.log("1  records Inserted, ID:"+ res.insertId);
                 res.json({
                     succes:true,
                     message: 'ajouter avec succès',
                          })  
-            }
-            else if(sortedQues2 == null  )
-            {
-                res.json({succes: false,
-                    message: 'test introuvable',})
-                
-            
         
-            }
          
             
              

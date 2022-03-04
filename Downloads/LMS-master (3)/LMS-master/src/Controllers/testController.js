@@ -154,16 +154,17 @@ exports.put= async (req,res,next)=>{
     //let idChapitre=req.body.idChapitre;
  
 
-         
+        
    // const results= await chapitre.findChapById(idChapitre);
-    const storedTest =results[0];
-    const sortedTest2 =results[0][0];
-
+    //const storedTest =results[0];
+   // const sortedTest2 =results[0][0];
+/*
             if(storedTest.length >0)
             {
-                const rest= await test.update(designation,datePassage,dureeMax,req.params.idTest);
+                */
+                const rest= await test.update(designation,dureeMax,datePassage,req.params.idTest);
                 res.json({update:true}); 
-            }
+          /*  }
             else if(sortedTest2 == null)
             {
                 res.json({succes: false,
@@ -172,5 +173,6 @@ exports.put= async (req,res,next)=>{
             
         
             }
+            */
     }
     

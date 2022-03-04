@@ -35,9 +35,9 @@ module.exports = class Test{
    }
  
     
-    static update(designation,dureeMax,idChapitre,idTest) {
-        return db.execute('UPDATE test SET designation = ?,dureeMax  = ?, datePassage = ?, idChapitre =? WHERE idTest = ?', 
-        [designation,dureeMax,dureeMax,idChapitre,idTest]);
+    static update(designation,dureeMax,datePassage,idTest) {
+        return db.execute('UPDATE test SET designation = ?,dureeMax  = ?, datePassage = ? WHERE idTest = ?', 
+        [designation,dureeMax,datePassage,idTest]);
       }
       
     
