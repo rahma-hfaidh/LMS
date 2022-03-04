@@ -32,7 +32,7 @@ module.exports = class reponse{
  
     
     static update(contenu,correct,id_question,id_reponse) {
-        return db.execute('UPDATE reponse SET contenu = ?, correct = ?,idQuestion = ? WHERE id_reponse = ?',
+        return db.execute('UPDATE reponse SET contenu = ?, correct = ?,idQuestion = ? WHERE idReponse = ?',
         [contenu,correct,id_question,id_reponse]);
       }
     

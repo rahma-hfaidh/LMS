@@ -100,18 +100,12 @@ console.log(req.params.idQuestion)
 console.log("gffff")
     const deletequestion = await question.deleteQ(req.params.idQuestion);
     console.log("gffff")
-    if(deletequestion[0].affectedRows == 1)
-    {
+   
         res.json({succes: true,
             message: 'delete successfully',
                });
-    }
-    else if(deletequestion[0].affectedRows ==0)
-    {
-        res.json({succes: false,
-            message: 'error in delete',
-               });
-    } 
+    
+   
     }
 
 
@@ -170,19 +164,18 @@ exports.put= async (req,res,next)=>{
     let quest= req.body.question;
     let ponderation= req.body.ponderation;
     let idTest= req.body.idTest;
+    let id_type=req.body.id_type;
              
-    const results= await test.findTestById(idTest);
-    const storedType= resulttype[0];
-    const storedType2= resulttype[0][0];
-    const storedQues =results[0];
-    const sortedQues2 =results[0][0];
+    //const results= await test.findTestById(idTest);
 
- 
+
+ /*
             if(storedQues.length >0 && storedType.length>0 )
-            {
-                const rest=await question.update(duree,quest,ponderation,idTest,req.params.idQuestion);
+            {*/
+                const rest=await question.update(duree,quest,ponderation,id_type,idTest,req.params.idQuestion);
                 res.json({update:true}); 
-            }
+          
+         /*  }
             else if(sortedQues2 == null || storedType2 == null)
             {
                 res.json({succes: false,
@@ -191,5 +184,6 @@ exports.put= async (req,res,next)=>{
             
         
             }
+            */
     }
     

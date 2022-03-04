@@ -10,7 +10,7 @@ router.get('/listQuestion', questionController.getAllquestion);
 router.get('/idQuestion', questionController.getIdQuestion);
 router.get('/:idQuestion',questionController.getQuestion);
 router.get('/test/:idTest',questionController.getQuestionByTest);
-router.delete('/deleteQuestion/idQuestion', questionController.deleteQ);
+router.delete('/deleteQuestion/:idQuestion', questionController.deleteQ);
 router.delete('/deleteQuestion/byTest/:idTest', questionController.deleteByIdTest)
 router.put('/updateQuestion/:idQuestion',questionController.put)
 module.exports = router;

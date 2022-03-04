@@ -142,20 +142,11 @@ exports.put= async (req,res,next)=>{
     let idQuestion= req.body.idQuestion;
  
              
-    const results= await question.findQuesById(idQuestion);
-    const storedRep =results[0];
-    const sortedRep2 =results[0][0];
+  
 
-            if(storedRep.length >0)
-            {
+          
                 const rest =await reponse.update(contenu,correct,idQuestion,req.params.idReponse);
                 res.json({update:true}); 
-            }
-            else if(sortedQues2 == null)
-            {
-                res.json({succes: false,
-                    message: 'test introuvable',})  
-        
-            }
+          
     }
     

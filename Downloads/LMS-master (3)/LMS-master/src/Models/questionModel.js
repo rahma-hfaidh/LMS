@@ -41,7 +41,7 @@ module.exports = class Question{
     
     static update(duree,question,ponderation,id_type,idTest,id_question) {
       
-        return db.execute('UPDATE question SET  duree = ?,question = ?,ponderation = ?,idTest =?,id_type =? WHERE id_question = ?', 
+        return db.execute('UPDATE question SET  duree = ?,question = ?,ponderation = ?,id_type =?,idTest =? WHERE idQuestion = ?', 
         [duree,question,ponderation,id_type,idTest,id_question]);
       }
     
